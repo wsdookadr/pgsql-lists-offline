@@ -1,0 +1,7 @@
+* Usage
+
+#+begin_src sh
+./get.sh <mailing-list>
+#+end_src
+
+
