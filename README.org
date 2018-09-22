@@ -1,12 +1,14 @@
-Downloads PostgreSQL mailing lists for offline reading and usage.
+* pgsql-lists-offline
 
-* Dependencies
+Downloads PostgreSQL mailing list archives for offline reading and usage.
+
+** Dependencies
 
 #+begin_src sh
-apt-get install parallel curl
+sudo apt-get install parallel curl
 #+end_src
 
-* Usage
+** Usage
 
 To get a list of all mailing lists available:
 
@@ -20,9 +22,12 @@ To download a list (for example pgsql-general):
 ./pgsql-lists-offline.sh -g pgsql-general
 #+end_src
 
-* Acknowledgments
+** License
+
+This software is distributed under the MIT license.
+
+** Acknowledgments
 
 This program is based on [[https://github.com/gschlager/pgsql-mbox-download][pgsql-mbox-download]] which is
 now outdated.
-
 
