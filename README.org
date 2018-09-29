@@ -2,6 +2,9 @@
 
 Downloads PostgreSQL mailing list archives for offline reading and usage.
 
+The mailing list archives that will be downloaded are in the [[https://en.wikipedia.org/wiki/Mbox][mbox format]] and can be read
+using any mbox-aware email client (for example [[http://www.mutt.org/][mutt]] ).
+
 ** Dependencies
 
 #+begin_src sh

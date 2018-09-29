@@ -4,7 +4,7 @@ PASS=antispam
 
 help() {
     echo "
-Usage: get.sh <params>
+Usage: pgsql-lists-offline.sh <params>
 
 -l get a list of all mailing lists
 -g <mailing-list-name> get all archives from a certain mailing list
@@ -31,7 +31,7 @@ sync_ml() {
             echo "$MP,$MF"
         fi
     done | \
-    parallel  --no-notice --col-sep , -j4 -k 'curl -s --user archives:antispam "https://www.postgresql.org{1}" -o data/{2} ; echo {2};'
+    USER="$USER" PASS="$PASS" parallel  --no-notice --col-sep , -j4 -k 'curl -s --user $USER:$PASS "https://www.postgresql.org{1}" -o data/{2} ; echo {2};'
 }
 
 NO_PARAMS=1
