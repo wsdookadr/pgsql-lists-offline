@@ -8,7 +8,7 @@ Usage: pgsql-lists-offline.sh <params>
 
 -l list the mailing lists supported for download
 -g <mailing-list-name> get all archives from a certain mailing list
-
+-c generates archives for each mailing list
 "
 }
 
@@ -28,8 +28,8 @@ list_all() {
 
 
 #
-# The email archive is usually structured with a compressed file per month containing
-# all the emails for that month.
+# The email archive is usually composed of one compressed file per month
+# containing all the emails sent to the mailing list for that month.
 # 
 # This function downloads all of them.
 #
@@ -77,26 +77,36 @@ sync_ml() {
 
 NO_PARAMS=1
 
-while getopts ":lg:" opt; do
+while getopts ":lg:ch" opt; do
   case $opt in
     l)
       list_all
       NO_PARAMS=0
+      exit 0
       ;;
     g)
       echo "$OPTARG"
       mkdir data
       sync_ml "$OPTARG"
       NO_PARAMS=0
+      exit 0
+      ;;
+    c)
+      mkdir packed
+      ls data | parallel --no-notice -j3 '
+        cd data
+        rm ../packed/{}.tar.gz
+        tar czvf ../packed/{}.tar.gz {}/
+      '
+      exit 0
+      ;;
+    h)
+      help;
+      exit 0;
       ;;
     *)
       help;
       ;;
   esac
 done
-
-if [[ "$NO_PARAMS" -eq "1" ]]; then
-    help;
-    exit 0;
-fi
 
