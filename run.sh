@@ -7,3 +7,6 @@
 ./pgsql-lists-offline.sh -g pgsql-sql
 ./pgsql-lists-offline.sh -g pgsql-testers
 
+./pgsql-lists-offline.sh -g postgis-users
+./pgsql-lists-offline.sh -g postgis-devel
+

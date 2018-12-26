@@ -1,6 +1,6 @@
 * pgsql-lists-offline
 
-Downloads PostgreSQL mailing list archives for offline reading and usage.
+Downloads mailing list archives for PostgreSQL, PostGIS and pgRouting.
 
 The mailing list archives that will be downloaded are in the [[https://en.wikipedia.org/wiki/Mbox][mbox format]] and can be read
 using any mbox-aware email client (for example [[http://www.mutt.org/][mutt]] ).
